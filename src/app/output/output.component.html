@@ -1,0 +1,26 @@
+<p>output works!</p>
+<div style="display: flex; flex-direction: row; align-items: center">
+<form [formGroup]="generateForm">
+<select formControlName="firstDig" [(ngModel)]="firstDigit">
+    <option *ngFor="let i of optionRange" [(value)]="i">
+        {{ i }}
+    </option>
+</select>
+<select formControlName="secondDig" [(ngModel)]="secondDigit">
+    <option *ngFor="let i of optionRange" [(value)]="i">
+        {{ i }}
+    </option>
+</select>
+<select formControlName="systemName" [(ngModel)]="system">
+    <option value="MajorSystem">MajorSystem</option>
+    <option value="DominicSystem">DominicSystem</option>
+</select>
+<button (click)="generate()">Generate</button>
+</form>
+</div>
+<div style="display: flex; flex-direction: row; align-items: center">
+    <select formControlName="celebData" [(ngModel)]="celebData" multiple size="10" style="height: 100%;">
+        <option *ngFor="let j of celebData" [(value)]="j">{{ j }}</option>
+    </select>
+</div>
+<router-outlet></router-outlet>
