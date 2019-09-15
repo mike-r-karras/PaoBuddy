@@ -6,17 +6,18 @@ import { Injectable } from '@angular/core';
 export class ResourceService {
   readonly MajorSystem: string[][] = [
     [ 's[^h]', 'z[^h]', 'c[ie]' ],
-    [ 't[^h]', 'd' ],
+    [ 't', 'd' ],
     [ 'n' ],
     [ 'm' ],
     [ 'r' ],
     [ 'l' ],
-    [ 'ch', 'sh', 'zh', 'h', 'w', 'j' ],
-    [ 'c[^ieh]', 'k', 'q', 'g[^ie]' ],
-    [ 'f', 'v', 'ph', 'th' ],
+    [ 'ch[^r]', 'sh', 'zh', 'h', 'w', 'j' ],
+    [ 'c[^ieh]', 'chr', 'k', 'q', 'g[^ie]' ],
+    [ 'f', 'v', 'ph' ],
     [ 'p[^h]', 'b' ]
   ];
     readonly DominicSystem: string[][] = [
+      [ 'o' ],
       [ 'a' ],
       [ 'b' ],
       [ 'c' ],
@@ -26,7 +27,6 @@ export class ResourceService {
       [ 'g' ],
       [ 'h' ],
       [ 'n' ],
-      [ 'o' ]
     ]
   constructor() { }
 }

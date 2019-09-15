@@ -11,13 +11,18 @@ import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, FormControl  
 export class OutputComponent implements OnInit {
   paoEncodeService: PaoEncodeService;
   celebData: string[];
+  celebDescription: string;
+  celebImage: string;
   firstDigit: number = 0;
   secondDigit: number = 0;
+  celebSelected: any;
   generateForm = new FormGroup({
     firstDig: new FormControl(),
     secondDig: new FormControl(),
     systemName: new FormControl(),
-    celebData: new FormControl()
+    celebData: new FormControl(),
+    celebDescription: new FormControl(),
+    celebImage: new FormControl()
   });;
   system: string = 'MajorSystem';
   optionRange: number[];
@@ -32,7 +37,9 @@ export class OutputComponent implements OnInit {
       firstDig: 0,
       secondDig:0,
       systemName: 'MajorSystem',
-      celebData: []
+      celebData: [],
+      celebDescription: '',
+      celebImage: ''
     })
   }
 
@@ -46,4 +53,10 @@ export class OutputComponent implements OnInit {
     this.celebData = this.paoEncodeService.generateCelebs(position, this.generateForm.controls['systemName'].value);
   }
 
+  celebSelect() {
+    console.log("Selected",this.generateForm.controls['celebData'].value[0]['description']);
+    this.generateForm.controls['celebDescription'].setValue(this.generateForm.controls['celebData'].value[0]['description']);
+    this.celebImage = this.generateForm.controls['celebData'].value[0]['image'];
+    this.celebSelected = this.generateForm.controls['celebData'].value['person'];
+  }
 }
